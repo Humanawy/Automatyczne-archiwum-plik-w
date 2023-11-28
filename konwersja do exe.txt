@@ -1,3 +1,0 @@
-pyinstaller --onefile nazewnictwo_plikow_pdf_scoring.pyw --exclude PIL --exclude psutil --exclude scipy --exclude matplotlib --exclude IPython --exclude pygments --exclude jedi --exclude zmq --exclude lxml --exclude sqlalchemy --exclude gevent --exclude sqlite3
-
-pyinstaller --onefile nazewnictwo_plikow_pdf_scoring.pyw --exclude  PIL --exclude psutil --exclude scipy --exclude matplotlib --exclude IPython --exclude pygments --exclude jedi --exclude zmq --exclude lxml --exclude sqlalchemy --exclude gevent
