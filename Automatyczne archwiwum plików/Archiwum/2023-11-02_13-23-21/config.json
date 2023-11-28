@@ -1,6 +1,0 @@
-{
-    "source_directory": "C:\\Users\\adam.ryszawy\\Pulpit\\Automatyczne archwiwum plików",
-    "archive_directory": "C:\\Users\\adam.ryszawy\\Pulpit\\Automatyczne archwiwum plików\\Archiwum",
-    "file_exclusions": ["konwersja do exe.txt"],
-    "folder_exclusions": [".git","__pycache__"]
-}
