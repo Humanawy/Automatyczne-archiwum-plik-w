@@ -15,7 +15,7 @@ DEFAULT_CONFIG_ARCHIVE = {
 
 def display_messagebox(title, message, mode="info"):
     root = tk.Tk()
-    root.withdraw()  # Ukrywa główne okno tkinter
+    root.withdraw()
     
     if mode == "info":
         messagebox.showinfo(title, message)
