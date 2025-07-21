@@ -14,17 +14,6 @@ DEFAULT_CONFIG_ARCHIVE = {
     }
 
 def display_messagebox(title, message, mode="info"):
-    """
-    Wyświetla okno dialogowe na podstawie podanych argumentów.
-    
-    Args:
-    - title (str): Tytuł okna dialogowego.
-    - message (str): Treść komunikatu.
-    - mode (str): Rodzaj messageboxa ("info", "error", "yesno"). Domyślnie "info".
-    
-    Returns:
-    - bool: True/False dla trybu "yesno". None dla pozostałych trybów.
-    """
     root = tk.Tk()
     root.withdraw()  # Ukrywa główne okno tkinter
     
@@ -44,12 +33,10 @@ def display_messagebox(title, message, mode="info"):
 class DirectoryArchiver:
 
     def __init__(self, config: dict):
-        # Pobieranie wartości z konfiguracji
         self.directory_path = config.get("source_directory", "")
         self.archive_directory_path = config.get("archive_directory", "")
         self.exclusions = config.get("file_exclusions", []) + config.get("folder_exclusions", [])
         
-        # Dodajemy skrypt i folder Archiwum jako domyślne wyjątki
         self.exclusions.append("Archiwum")
         self.exclusions.append(os.path.basename(__file__))
         self._verify_source_directory_exists()
@@ -81,9 +68,7 @@ class DirectoryArchiver:
         
         for item in os.listdir(self.directory_path):
             source_item = os.path.join(self.directory_path, item)
-            
-            # Pomija foldery i pliki, których nazwy są na liście wyjątków
-            if item in self.exclusions:  # Zmiana z source_item na item
+            if item in self.exclusions:
                 continue
             
             if os.path.isfile(source_item):
@@ -103,7 +88,6 @@ if __name__ == "__main__":
 }
     archiver = DirectoryArchiver(config_data)
     
-    # Wyświetlanie okna dialogowego do potwierdzenia
     excluded_items = "\n- ".join(archiver.exclusions)
     message = (f"Czy chcesz utworzyć archiwum katalogu {archiver.directory_path} "
             f"w docelowym katalogu z archiwum z pominięciem folderów i plików, które mają w nazwie:\n"
